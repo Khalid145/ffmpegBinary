@@ -4,8 +4,8 @@
 
 X264_FILENAME=x264-snapshot-20170317-2245-stable.tar.bz2
 X264_URL=ftp://ftp.videolan.org/pub/x264/snapshots/$X264_FILENAME
-FFMPEG_FILENAME=ffmpeg-3.4.1.tar.bz2
-FFMPEG_URL=http://ffmpeg.org/releases/$FFMPEG_FILENAME
+FFMPEG_FILENAME=ffmpeg-git-64bit-static.tar.xz
+FFMPEG_URL=https://www.johnvansickle.com/ffmpeg/$FFMPEG_FILENAME
 
 # Download the things
 
@@ -39,7 +39,7 @@ if [ ! -f ffmpeg/ffmpeg ]; then
     mkdir ffmpeg
     tar -jxvf $FFMPEG_FILENAME -C ffmpeg --strip-components 1
     cd ffmpeg
-    ./configure --disable-shared --enable-static \
+    ./configure --disable-shared --enable-static --enable-libmp3lame\
         --enable-gpl --enable-libx264 --enable-pthreads \
         --extra-cflags="-I$HERE/x264/include" \
         --extra-ldflags="-I$HERE/x264/include -L$HERE/x264/lib" \
