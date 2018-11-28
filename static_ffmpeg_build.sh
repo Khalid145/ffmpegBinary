@@ -40,8 +40,7 @@ if [ ! -f ffmpeg/ffmpeg ]; then
     tar -jxvf $FFMPEG_FILENAME -C ffmpeg --strip-components 1
     cd ffmpeg
     ./configure --disable-shared --enable-static \
-        --enable-gpl --enable-libx264 --enable-libmp3lame \
-        --enable-pthreads \
+        --enable-gpl --enable-libx264 --enable-pthreads \
         --extra-cflags="-I$HERE/x264/include" \
         --extra-ldflags="-I$HERE/x264/include -L$HERE/x264/lib" \
         --extra-libs=-ldl
